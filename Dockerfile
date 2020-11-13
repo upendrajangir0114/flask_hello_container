@@ -2,8 +2,8 @@ FROM python:3.7
 RUN useradd -ms /bin/bash celebal
 USER celebal
 
-RUN apt update \
-	&& apt install openssh \
+RUN sudo apt update \
+	&& sudo apt install openssh \
     && echo "root:Docker!" | chpasswd
 COPY sshd_config /etc/ssh/
 RUN /usr/sbin/sshd
